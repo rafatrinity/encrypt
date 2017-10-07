@@ -1,14 +1,27 @@
 #include <bits/stdc++.h>
-#include "arvore.h"
-//#include "encrip.h"
+#include "menus.h"
+#include "sis.h"
 using namespace std;
 int main(int argc, char const *argv[])
 {
-	ArvBin* raiz;
-	raiz = cira_arvore();
-	//enviar();
-	cout<<endl;
-	cout<<"qt no "<<qt_no(raiz)<<endl;
-	cout<<"altura arvore "<<altura_arvore(raiz)<<endl;
-	return 0;
+	int m;
+	apresenta();
+	do{
+		int m=menu_principal();
+		switch(m){
+			case 0:
+			fim();
+			return 0;
+			break;
+			case 1:
+			menu_compactar();
+			break;
+			case 2:
+			break;
+			case 3:
+			break;
+			default:
+			break;
+		}	
+	}while(m);
 }

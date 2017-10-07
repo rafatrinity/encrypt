@@ -56,7 +56,7 @@ char apresenta(){
 
 void linha(){
 	usleep(100000);
-	for (int i = 0; i < 60; ++i)
+	for (int i = 0; i < 70; ++i)
 		printf("=");
 	usleep(100000);
 	printf("\n");
@@ -71,10 +71,10 @@ void cab(){
 		system("clear");
 	time_t t = time(NULL);
 	struct tm tm = *localtime(&t);
-	printf("============================================================\n");
-	printf("\tUNICARIOCA - ADIVINHA - ");
+	linha();
+	printf("\tUNICARIOCA - COMPACTADOR HUFFMAN - ");
 	printf("%d/%d/%d - %d:%d\n",tm.tm_mday,tm.tm_mon+1,tm.tm_year + 1900,tm.tm_hour,tm.tm_min);
-	printf("============================================================\n\n");
+	linha();
 }
 
 void fim(){
