@@ -41,5 +41,6 @@ void menu_compactar(){
 			default:
 			break;
 		}
+		getchar();
 	}while(m);
 }

@@ -22,11 +22,25 @@ string le_arquivo(){
 	return saida.str();
 }
 void pega_texto(bool b){
+	huff h = huff();
 	string texto;
 	if(b)
 		texto=le_arquivo();
 	else
 		getline(cin,texto);
+	linha();
 	sucesso(texto);
+	vector<bool> bits = h.comprime(texto);
+	aviso(2);
+	sucesso(gerar_string(bits));
+	aviso(3);
+	salvar_arquivo(bits);
+	aviso(4);
+	for(auto v : h.obter_dicionario())
+		cout<<"("<<v.first<<","<<bitset<4>(v.second)<<")\n";
+	cout<<"\033[0m\n";
+	aviso(5);
+	getchar(); 
 }
+
 #endif
