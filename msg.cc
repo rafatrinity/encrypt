@@ -1,3 +1,4 @@
+#include "aux.h"
 #include "sis.h"
 #include "msg.h"
 #include "menus.h"
@@ -38,7 +39,6 @@ void aviso(int n){
 		break;
 		case 5:
 		cout<<"\n\tTOTAL DE BITS EXEDENTES: ";
-		sucesso(h.exedente());
 		break;
 	}
 	cin>>b;

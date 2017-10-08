@@ -20,7 +20,7 @@ string le_arquivo(){
 		erro(1);
 	arquivo.close();
 	return saida.str();
-}
+} 
 void pega_texto(bool b){
 	huff h = huff();
 	string texto;
@@ -40,6 +40,7 @@ void pega_texto(bool b){
 		cout<<"("<<v.first<<","<<bitset<4>(v.second)<<")\n";
 	cout<<"\033[0m\n";
 	aviso(5);
+	sucesso(h.exedente());
 	getchar(); 
 }
 
