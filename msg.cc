@@ -1,7 +1,5 @@
 #include "aux.h"
-#include "sis.h"
-#include "msg.h"
-#include "menus.h"
+
 using namespace std;
 bool b;
 void erro(int n){

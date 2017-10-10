@@ -1,4 +1,5 @@
-#include "huffman.h"
+#ifndef HUF_C
+#define HUF_C
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -75,3 +76,33 @@ vector<bool> Huffman::comprime(string texto){
 	return resultado;
 }
 
+void salvar_arquivo(vector<bool> bits){
+	ofstream file;
+	file.open("hufman.txt", ios::binary);
+	int conta = 0;
+	bitset<8> toAppend;
+	string resultado;
+	for(bool bit : bits){
+		++conta;
+		toAppend[0] = bit;
+		if(conta == 8){
+			char c = char(toAppend.to_ulong());
+			resultado += c;
+			conta = 0;
+			cout<<bitset<8>(static_cast<unsigned long long int>(c));
+			toAppend = 0;
+		}
+		else
+			toAppend <<= 1;
+	}
+	if(conta > 0){
+		toAppend <<= (8-conta)-1;
+		char c = char(toAppend.to_ulong());
+		resultado += c;
+		cout<<bitset<8>(static_cast<unsigned long long int>(c));
+	}
+	cout<<endl;
+	file<<resultado;
+	file.close();
+}
+#endif

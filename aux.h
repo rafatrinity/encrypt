@@ -1,7 +1,10 @@
 #ifndef auxiliar
 #define auxiliar
 #include <bits/stdc++.h>
+#include "huffman.h"
 #include "msg.h"
+#include "sis.h"
+
 using namespace std;
 string le_arquivo(){
 	string nome_arquivo;

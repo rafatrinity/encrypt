@@ -1,7 +1,5 @@
 #include "aux.h"
-#include "sis.h"
-#include "menus.h"
-#include <bits/stdc++.h>
+
 using namespace std;
 
 int menu_principal(){
