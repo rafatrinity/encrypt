@@ -11,7 +11,8 @@ void erro(int n){
 		cout<<"\t\t\nERRO! \n\tO ARQUIVO NÃO PODE SER ABERTO.\n";
 		cout<<"CERTIFIQUE-SE SE O NOME FOI DIGITADO CORRETAMENTE, PARA MAIS INFORMAÇÕES SELECIONE A OPÇÃO AJUDA\n";
 		break;
-	}
+        default:break;
+    }
 	cin>>b;
 	cout<<"\033[0m";
 }
@@ -38,7 +39,8 @@ void aviso(int n){
 		case 5:
 		cout<<"\n\tTOTAL DE BITS EXEDENTES: ";
 		break;
-	}
+        default:break;
+    }
 	cin>>b;
 	cout<<"\033[0m";
 }

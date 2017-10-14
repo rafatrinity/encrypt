@@ -7,12 +7,11 @@ int main(int argc, char const *argv[])
 	int m;
 	apresenta();
 	do{
-		int m=menu_principal();
+		m=menu_principal();
 		switch(m){
 			case 0:
 			fim();
 			return 0;
-			break;
 			case 1:
 			menu_compactar();
 			break;
@@ -23,5 +22,5 @@ int main(int argc, char const *argv[])
 			default:
 			break;
 		}	
-	}while(m);
+	}while(true);
 }

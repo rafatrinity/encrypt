@@ -1,6 +1,9 @@
 #ifndef HUF_C
 #define HUF_C
 #include <bits/stdc++.h>
+#include "huffman.h"
+#include "Node.h"
+
 using namespace std;
 
 auto Huffman::construir_alfabeto(string texto){
@@ -42,10 +45,10 @@ auto Huffman::construir_arvore(T alfabeto){
 template <typename T>
 auto Huffman::construir_dicionario(T rootNode){
 	queue<pair<char, unsigned long>> codes;
-	encode(rootNode,0,&codes);
-	auto dicionario = map<char, unsigned long>();
+	cod(rootNode,0,&codes);
+	auto dicionario = unordered_map<char, unsigned long>();
 	while(!codes.empty()){
-		auto atual = codes.front();
+		auto atual = static_cast<pair<char, unsigned long> &&>(codes.front());
 		dicionario[atual.first] = atual.second;
 		codes.pop();
 	}
@@ -53,7 +56,7 @@ auto Huffman::construir_dicionario(T rootNode){
 }
 
 vector<bool> Huffman::comprime(string texto){
-	auto rootNode = constroi_arvore(construir_alfabeto(texto));
+	auto rootNode = construir_arvore(construir_alfabeto(texto));
 	this->dicionario = construir_dicionario(rootNode);
 	vector<bool> resultado;
 	for(auto c: texto){
@@ -76,33 +79,25 @@ vector<bool> Huffman::comprime(string texto){
 	return resultado;
 }
 
-void salvar_arquivo(vector<bool> bits){
-	ofstream file;
-	file.open("hufman.txt", ios::binary);
-	int conta = 0;
-	bitset<8> toAppend;
-	string resultado;
-	for(bool bit : bits){
-		++conta;
-		toAppend[0] = bit;
-		if(conta == 8){
-			char c = char(toAppend.to_ulong());
-			resultado += c;
-			conta = 0;
-			cout<<bitset<8>(static_cast<unsigned long long int>(c));
-			toAppend = 0;
-		}
-		else
-			toAppend <<= 1;
-	}
-	if(conta > 0){
-		toAppend <<= (8-conta)-1;
-		char c = char(toAppend.to_ulong());
-		resultado += c;
-		cout<<bitset<8>(static_cast<unsigned long long int>(c));
-	}
-	cout<<endl;
-	file<<resultado;
-	file.close();
+template <typename T, typename U>
+void Huffman::cod(T n, unsigned long code, queue<U> *codes){
+ if(n->hasLeft())
+     cod(n->getLeft(), code << 1,codes);
+ if(n->hasRight())
+     cod(n->getRight(), (code << 1) +1,codes);
+ if(!n->hasLeft()&&!n->hasRight())
+     codes->push(U(n->getLetter(),code));
 }
+
+auto Huffman::getTree(){
+    return tree;
+}
+
+int Huffman::exedente() {
+    return this->overplus;
+}
+unordered_map<char, unsigned long> Huffman::obter_dicionario(){
+    return this->dicionario;
+};
+
 #endif
