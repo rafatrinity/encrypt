@@ -6,6 +6,14 @@
 #include "sis.h"
 
 using namespace std;
+
+string gerar_string(vector<bool> bits) {
+    string resultado;
+    for(bool bit : bits)
+        resultado += bit ? '0':'1';
+    return std::__cxx11::string();
+}
+
 string le_arquivo(){
 	string nome_arquivo;
 	cin>>nome_arquivo;
@@ -25,10 +33,36 @@ string le_arquivo(){
 	return saida.str();
 }
 
+auto le_bin(){
+    string nome_arquivo;
+    cin>>nome_arquivo;
+    ifstream arquivo;
+    arquivo.open(nome_arquivo);
+    deque<bool> saida;
+    string lido;
+    if(arquivo.is_open()){
+        while(!arquivo.eof())
+            arquivo >> lido;
+        for(char c: lido){
+            if(c != arquivo.eof()) {
+                bitset<8> byte = bitset<8>(static_cast<unsigned long long int>(c));
+                cout << bitset<8>(c);
+                for (int i = 7; i >= 0; i--)
+                    saida.push_back((bool &&) byte[i]);
+            }
+        }
+        cout<<endl;
+    }
+    else
+        erro(1);
+    arquivo.close();
+    return saida;
+}
+
 void salvar_arquivo(vector<bool> bits){
     ofstream file;
-    file.open("hufman.txt", ios::binary);
-    int conta = 0;
+    file.open("huffman.txt", ios::binary);
+    auto conta = 0;
     bitset<8> toAppend;
     string resultado;
     for(bool bit : bits){
@@ -70,8 +104,8 @@ void pega_texto(bool b){
 	aviso(3);
 	salvar_arquivo(bits);
 	aviso(4);
-	for(auto v : h.obter_dicionario())
-		cout<<"("<<v.first<<","<<bitset<4>(v.second)<<")\n";
+	//for(auto v : h.obter_dicionario())
+	//	cout<<"("<<v.first<<","<<bitset<4>(v.second)<<")\n";
 	cout<<"\033[0m\n";
 	aviso(5);
 	sucesso(h.exedente());

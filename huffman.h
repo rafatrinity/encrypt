@@ -1,6 +1,8 @@
-#ifndef HUFMAN
-#define HUFMAN
+#ifndef HUFFMAN
+#define HUFFMAN
 #include <bits/stdc++.h>
+#include "Node.h"
+
 using namespace std;
 typedef class Huffman{
     auto dicionario;
@@ -18,5 +20,7 @@ public:
     auto getTree();
     auto exedente();
     auto obter_dicionario();
+    string descomprime(deque<bool> bits);
+    char decod(list<bool> mascara, shared_ptr<Node> atual);
 } huff;
 #endif
