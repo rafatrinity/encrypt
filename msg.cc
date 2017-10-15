@@ -43,7 +43,6 @@ void aviso(int n){
 		break;
         default:break;
     }
-	cin>>b;
 	cout<<"\033[0m";
 }
 

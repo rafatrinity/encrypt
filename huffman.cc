@@ -2,7 +2,6 @@
 #define HUF_C
 #include <bits/stdc++.h>
 #include "huffman.h"
-#include "Node.h"
 #include "msg.h"
 
 using namespace std;

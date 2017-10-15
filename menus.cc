@@ -42,3 +42,4 @@ void menu_compactar(){
 		getchar();
 	}while(m);
 }
+

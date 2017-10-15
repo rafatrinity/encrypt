@@ -2,18 +2,18 @@
 #define ENCRYPT_NODE_H
 #include <bits/stdc++.h>
 using namespace std;
-auto *esq;
-auto *dir;
-auto letra;
+class Node* esq;
+class Node* dir;
+char letra;
 class Node{
 public:
-    auto setWeight(auto &esq, auto &dir);
+    void setWeight(class Node* esq, class Node* dir);
     auto getRight();
     auto getLeft();
     auto getLetter();
-    auto hasLeft();
-    auto hasRight();
-    Node(auto count, auto v);
+    bool hasLeft();
+    bool hasRight();
+    Node(int count, int v);
     Node();
 };
 #endif //ENCRYPT_NODE_H

@@ -35,6 +35,7 @@ string le_arquivo(){
 
 auto le_bin(){
     string nome_arquivo;
+    aviso(1);
     cin>>nome_arquivo;
     ifstream arquivo;
     arquivo.open(nome_arquivo);
@@ -45,7 +46,8 @@ auto le_bin(){
             arquivo >> lido;
         for(char c: lido){
             if(c != arquivo.eof()) {
-                bitset<8> byte = bitset<8>(static_cast<unsigned long long int>(c));
+                bitset<8> byte;
+                byte = bitset<8>(static_cast<unsigned long long int>(c));
                 cout << bitset<8>(c);
                 for (int i = 7; i >= 0; i--)
                     saida.push_back((bool &&) byte[i]);
@@ -69,7 +71,8 @@ void salvar_arquivo(vector<bool> bits){
         ++conta;
         toAppend[0] = bit;
         if(conta == 8){
-            char c = char(toAppend.to_ulong());
+            char c;
+            c = char(toAppend.to_ulong());
             resultado += c;
             conta = 0;
             cout<<bitset<8>(static_cast<unsigned long long int>(c));
@@ -80,7 +83,8 @@ void salvar_arquivo(vector<bool> bits){
     }
     if(conta > 0){
         toAppend <<= (8-conta)-1;
-        char c = char(toAppend.to_ulong());
+        char c;
+        c = char(toAppend.to_ulong());
         resultado += c;
         cout<<bitset<8>(static_cast<unsigned long long int>(c));
     }
@@ -90,7 +94,8 @@ void salvar_arquivo(vector<bool> bits){
 }
 
 void pega_texto(bool b){
-	huff h = huff();
+    Huffman h;
+    h = Huffman();
 	string texto;
 	if(b)
 		texto=le_arquivo();
@@ -98,7 +103,7 @@ void pega_texto(bool b){
 		getline(cin,texto);
 	linha();
 	sucesso(texto);
-	vector<bool> bits = h.comprime(texto);
+	vector<bool> bits;// = h.comprime(texto);
 	aviso(2);
 	sucesso(gerar_string(bits));
 	aviso(3);
@@ -108,9 +113,9 @@ void pega_texto(bool b){
 	//	cout<<"("<<v.first<<","<<bitset<4>(v.second)<<")\n";
 	cout<<"\033[0m\n";
 	aviso(5);
-	sucesso(h.exedente());
+	//cout<<h.exedente()<<endl;
 	getchar();
-    h.getTree();
+    //h.getTree();
 }
 
 #endif

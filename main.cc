@@ -16,6 +16,7 @@ int main(int argc, char const *argv[])
 			menu_compactar();
 			break;
 			case 2:
+			le_bin();
 			break;
 			case 3:
 			break;
