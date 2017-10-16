@@ -4,7 +4,7 @@
 
 #include "Node.h"
 
-class Node* Node::getRight() {
+class Node* Node::getRight(){
     return dir;
 }
 

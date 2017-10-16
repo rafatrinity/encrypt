@@ -12,8 +12,6 @@ class Huffman{
 public:
     auto construir_alfabeto(string texto);
     template <typename T>
-    auto construir_arvore(T alfabeto);
-    template <typename T>
     auto construir_dicionario(T rootNode);
     vector<bool> comprime(string texto);
     template <typename T, typename U>

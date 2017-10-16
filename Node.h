@@ -8,7 +8,7 @@ char letra;
 class Node{
 public:
     void setWeight(class Node* esq, class Node* dir);
-    auto getRight();
+    class Node* getRight();
     auto getLeft();
     auto getLetter();
     bool hasLeft();

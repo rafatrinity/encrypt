@@ -4,8 +4,10 @@
 #include "huffman.h"
 #include "msg.h"
 #include "sis.h"
+#include "menus.h"
 
 using namespace std;
+bool e;
 
 string gerar_string(vector<bool> bits) {
     string resultado;
@@ -26,11 +28,11 @@ string le_arquivo(){
 			arquivo >> buffer;
 			saida << buffer;
 		}
-	}
-	else
-		erro(1);
-	arquivo.close();
-	return saida.str();
+	} 
+    else
+       e=true;
+   arquivo.close();
+   return saida.str();
 }
 
 auto le_bin(){
@@ -56,9 +58,9 @@ auto le_bin(){
         cout<<endl;
     }
     else
-        erro(1);
-    arquivo.close();
-    return saida;
+     cout<<erro(1)<<endl;
+ arquivo.close();
+ return saida;
 }
 
 void salvar_arquivo(vector<bool> bits){
@@ -94,28 +96,40 @@ void salvar_arquivo(vector<bool> bits){
 }
 
 void pega_texto(bool b){
+    e = false;
     Huffman h;
     h = Huffman();
-	string texto;
-	if(b)
-		texto=le_arquivo();
-	else
-		getline(cin,texto);
-	linha();
-	sucesso(texto);
-	vector<bool> bits;// = h.comprime(texto);
-	aviso(2);
-	sucesso(gerar_string(bits));
-	aviso(3);
-	salvar_arquivo(bits);
-	aviso(4);
-	//for(auto v : h.obter_dicionario())
-	//	cout<<"("<<v.first<<","<<bitset<4>(v.second)<<")\n";
-	cout<<"\033[0m\n";
-	aviso(5);
-	//cout<<h.exedente()<<endl;
-	getchar();
-    //h.getTree();
+    string texto;
+    if(b)
+      texto=le_arquivo();
+  else
+      getline(cin,texto);
+  if(!e) {
+    linha();
+    sucesso(texto);
+        vector<bool> bits;// = h.comprime(texto);
+        aviso(2);
+        sleep(1);
+        sucesso(gerar_string(bits));
+        aviso(3);
+        sleep(1);
+        salvar_arquivo(bits);
+        aviso(4);
+        sleep(1);
+        //for(auto v : h.obter_dicionario())
+        //	cout<<"("<<v.first<<","<<bitset<4>(v.second)<<")\n";
+        cout << "\033[0m\n";
+        aviso(5);
+        sleep(1);
+        //cout<<h.exedente()<<endl;
+        getchar();
+        //h.getTree();
+    } 
+    else{
+        cout<<erro(1)<<endl;
+        sleep(1);
+        getchar();
+    }
 }
 
 #endif

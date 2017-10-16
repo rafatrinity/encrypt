@@ -4,19 +4,14 @@
 
 using namespace std;
 bool b;
-void erro(int n){
+string erro(int n){
 	cab();
-	cout<<"\033[1;31m";
-	linha();
 	switch(n){
 		case 1:
-		cout<<"\t\t\nERRO! \n\tO ARQUIVO NÃO PODE SER ABERTO.\n";
-		cout<<"CERTIFIQUE-SE SE O NOME FOI DIGITADO CORRETAMENTE, PARA MAIS INFORMAÇÕES SELECIONE A OPÇÃO AJUDA\n";
-		break;
+			return "\n\t\t\033[1;31mO ARQUIVO NÃO PODE SER ABERTO.\n\tCERTIFIQUE-SE SE O NOME FOI DIGITADO CORRETAMENTE,"
+				"\n\t   PARA MAIS INFORMAÇÕES SELECIONE A OPÇÃO AJUDA\n\033[0m";
         default:break;
     }
-	cin>>b;
-	cout<<"\033[0m";
 }
 
 void aviso(int n){

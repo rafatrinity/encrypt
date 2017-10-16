@@ -13,6 +13,8 @@ Node.h
 /home/rafael/Documentos/ED/encrypt/Node.h
 bits/stdc++.h
 -
+Node.cc
+/home/rafael/Documentos/ED/encrypt/Node.cc
 
 /home/rafael/Documentos/ED/encrypt/aux.h
 bits/stdc++.h
@@ -23,6 +25,8 @@ msg.h
 /home/rafael/Documentos/ED/encrypt/msg.h
 sis.h
 /home/rafael/Documentos/ED/encrypt/sis.h
+menus.h
+/home/rafael/Documentos/ED/encrypt/menus.h
 
 /home/rafael/Documentos/ED/encrypt/huffman.cc
 bits/stdc++.h
