@@ -65,9 +65,9 @@ auto le_bin(){
    return saida;
 }
 
-void salvar_arquivo(deque<bool> bits){
+void salvar_arquivo(deque<bool> bits, string arqv){
     ofstream file;
-    file.open("huffman.txt", ios::binary);
+    file.open(arqv, ios::binary);
     auto conta = 0;
     bitset<8> toAppend;
     string resultado;
@@ -113,9 +113,11 @@ void pega_texto(bool b) {
         aviso(2);
         sleep(1);
         sucesso(gerar_string(bits));
+        aviso(1);
+        cin>>texto;
+        salvar_arquivo(bits,texto);
         aviso(3);
         sleep(1);
-        salvar_arquivo(bits);
     }
     else{
         cout<<erro(1)<<endl;
