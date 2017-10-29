@@ -1,1 +1,0 @@
-/usr/bin/c++   -std=c++17 -g   CMakeFiles/encrypt.dir/huffman.cc.o CMakeFiles/encrypt.dir/main.cc.o CMakeFiles/encrypt.dir/menus.cc.o CMakeFiles/encrypt.dir/msg.cc.o CMakeFiles/encrypt.dir/Node.cc.o  -o encrypt 
