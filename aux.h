@@ -2,18 +2,20 @@
 #define auxiliar
 #include <bits/stdc++.h>
 #include "huffman.h"
+#include "huffman.cc"
 #include "msg.h"
 #include "sis.h"
 #include "menus.h"
 
 using namespace std;
 bool e;
+void pega_texto(bool b);
 
-string gerar_string(vector<bool> bits) {
+string gerar_string(deque<bool> bits) {
     string resultado;
     for(bool bit : bits)
         resultado += bit ? '0':'1';
-    return std::__cxx11::string();
+    return resultado;
 }
 
 string le_arquivo(){
@@ -30,9 +32,9 @@ string le_arquivo(){
 		}
 	} 
     else
-       e=true;
-   arquivo.close();
-   return saida.str();
+     e=true;
+ arquivo.close();
+ return saida.str();
 }
 
 auto le_bin(){
@@ -58,12 +60,12 @@ auto le_bin(){
         cout<<endl;
     }
     else
-     cout<<erro(1)<<endl;
- arquivo.close();
- return saida;
+       cout<<erro(1)<<endl;
+   arquivo.close();
+   return saida;
 }
 
-void salvar_arquivo(vector<bool> bits){
+void salvar_arquivo(deque<bool> bits){
     ofstream file;
     file.open("huffman.txt", ios::binary);
     auto conta = 0;
@@ -95,36 +97,26 @@ void salvar_arquivo(vector<bool> bits){
     file.close();
 }
 
-void pega_texto(bool b){
+
+void pega_texto(bool b) {
     e = false;
-    Huffman h;
-    h = Huffman();
     string texto;
+    getchar();
     if(b)
-      texto=le_arquivo();
-  else
-      getline(cin,texto);
-  if(!e) {
-    linha();
-    sucesso(texto);
-        vector<bool> bits;// = h.comprime(texto);
+        texto=le_arquivo();
+    else
+        getline(cin,texto);
+    if(!e) {
+        linha();
+        sucesso(texto);
+        deque<bool> bits = comprime(texto);
         aviso(2);
         sleep(1);
         sucesso(gerar_string(bits));
         aviso(3);
         sleep(1);
         salvar_arquivo(bits);
-        aviso(4);
-        sleep(1);
-        //for(auto v : h.obter_dicionario())
-        //	cout<<"("<<v.first<<","<<bitset<4>(v.second)<<")\n";
-        cout << "\033[0m\n";
-        aviso(5);
-        sleep(1);
-        //cout<<h.exedente()<<endl;
-        getchar();
-        //h.getTree();
-    } 
+    }
     else{
         cout<<erro(1)<<endl;
         sleep(1);

@@ -1,75 +1,107 @@
-#ifndef HUF_C
-#define HUF_C
-#include <bits/stdc++.h>
+/*
+ * Created by Rafael Trindade on 21/10/17.
+ * APS estrutura de dados
+ * Universidade: UniCarioca
+ * Professor: Ricardo Mesquita
+ * https://github.com/rafatrinity
+ */
+
+#include "No.cc"
 #include "huffman.h"
+#include "aux.h"
 #include "msg.h"
+auto h = new Huffman;
+template <typename U>
+void codificar(No* no, unsigned long code, queue<U> *codes);
 
-using namespace std;
+bool ordenar(No *a, No *b){//ordena a lista pelo parametro qt
+	return a->getQt() > b->getQt();
+}
 
-auto Huffman::construir_alfabeto(string texto){
+list<No*> gerar_alfabeto(string texto) {
+    //separa os caracteres
+	cout<<"gerando alfabeto\n";
 	unordered_multiset<char> conjunto;
-    for(auto c : texto)
-        conjunto.insert(c);
-	auto f = [](const unsigned long& a, const unsigned long& b){
-		return a<b;
-	};
-	multimap<unsigned long, shared_ptr<Node>, decltype(f)> letterCounter(f);
+	for(auto c : texto)
+		conjunto.insert(c);
+
 	unordered_set<char> skip;
-	for(auto v: conjunto){
-		if(skip.count(v)>0)
-			continue;
-		skip.insert(v);
-		auto count = conjunto.count(v);
-		auto node = shared_ptr<Node>(new Node(count, v));
-		letterCounter.insert(pair<unsigned long, decltype(node)>(
-			pair<unsigned long, decltype(node)>(count, node)));
-	}
-	return letterCounter;
+	list<No*> arv;
+
+    for(auto v: conjunto){//percorre os caracteres
+    	if(skip.count(v)>0)
+    		continue;
+    	skip.insert(v);
+        unsigned long count = conjunto.count(v);//conta os caracteres
+        auto s = new No(count, v);//cria nó
+        arv.push_back(s);//insere nó na lista
+    }
+    arv.sort(ordenar);
+    for(const auto &n: arv)
+    	cout<<n->getLetra()<<n->getQt()<<", ";
+    cout<<endl;
+    return arv;
 }
 
-template <typename T>
-auto Huffman::construir_arvore(T alfabeto){
-	while(alfabeto.size() > 1){
-		auto it = alfabeto.begin();
-		auto esq = *it;
-		alfabeto.erase(it);
-		it = alfabeto.begin();
-		auto dir = *it;
-		alfabeto.erase(it);
-		auto conta = esq.first + dir.first;
-		auto parent;
-        parent = decltype(esq)(conta, shared_ptr<Node>(new Node()));
-		parent.second->setWeight(esq.second, dir.second);
-		alfabeto.insert(parent);
-	}
-	return alfabeto.begin()->second;
+No* gerar_arvore(list<No*> folhas){
+	cout<<"gerando arvore\n";
+	while(true){
+        auto it=folhas.begin();//cria um interador apontando pro início da lista
+        auto esq=*it;//atribui o valor do iterador
+        folhas.erase(it);//remove o primeiro elemento da lista, mas não apaga ele.
+
+        it=folhas.begin();//repete o passo anterior
+        auto dir=*it;
+        folhas.erase(it);
+
+        auto soma=esq->getQt() + dir->getQt();//pega os 2 primeiros elementos da lista
+        // e soma os atributos qt que é a frequencia das letras
+        auto raiz = new No(esq,dir,soma);//cria novo nó
+        folhas.push_back(raiz);//insere o novo nó na lista
+        folhas.sort(ordenar);
+        if(folhas.size() <= 1)
+        	return raiz;
+    }
 }
 
-template <typename T>
-auto Huffman::construir_dicionario(T rootNode){
-	queue<pair<char, unsigned long>> codes;
-	cod(rootNode,0,&codes);
-	auto dicionario = unordered_map<char, unsigned long>();
-	while(!codes.empty()){
-		auto atual = static_cast<pair<char, unsigned long> &&>(codes.front());
-		dicionario[atual.first] = atual.second;
-		codes.pop();
+template <typename U>
+void codificar(No* no, unsigned long code, queue<U> *codes){
+	if(no->ehFolha()){
+		cout<<no->getLetra()<<" "<<code<<endl;
+		codes->push(U(no->getLetra(), code));
 	}
-	return dicionario;
+	if(no->temEsq())
+		codificar(no->getEsq(), code << 1,codes);
+	if(no->temDir())
+		codificar(no->getDir(), (code << 1) +1,codes);
 }
 
-vector<bool> Huffman::comprime(string texto){
-	auto rootNode = construir_arvore(construir_alfabeto(texto));
-	this->dicionario = construir_dicionario(rootNode);
-	vector<bool> resultado;
+
+unordered_map<char, unsigned long> construir_dicionario(No* root){
+	aviso(4);
+    queue<pair<char, unsigned long>> codes;//cria uma fila de pares
+    codificar(root,0,&codes);
+    unordered_map<char, unsigned long> dicionario;
+    while(!codes.empty()){
+    	auto atual = static_cast<pair<char, unsigned long> &&>(codes.front());
+    	dicionario[atual.first] = atual.second;
+    	codes.pop();
+    }
+    return dicionario;
+}
+
+deque<bool> comprime(string texto){
+	No* rootNode = gerar_arvore(gerar_alfabeto(texto));
+	auto dicionario = construir_dicionario(rootNode);
+	deque<bool> resultado;
 	for(auto c: texto){
 		auto bits = dicionario[c];
 		if(!bits)
-			resultado.push_back(0);
+			resultado.push_back(false);
 		else{
 			vector<bool> subset;
 			while(bits){
-				bool bit = static_cast<bool>(bits & 1);
+				auto bit = static_cast<bool>(bits & 1);
 				subset.push_back(bit);
 				bits>>=1;
 			}
@@ -77,61 +109,42 @@ vector<bool> Huffman::comprime(string texto){
 			resultado.insert(resultado.end(), subset.begin(), subset.end());
 		}
 	}
-	this->tree = rootNode;
-	this->overplus = char(8-resultado.size()%8);
+	h->arvore=rootNode;
+	h->extra=(char(8-resultado.size()%8));
+	for(auto a: resultado)
+		cout<<a;
+	cout<<"\nbits extras "<<h->extra<<endl;
 	return resultado;
 }
 
-template <typename T, typename U>
-void Huffman::cod(T n, unsigned long code, queue<U> *codes){
- if(n->hasLeft())
-     cod(n->getLeft(), code << 1,codes);
- if(n->hasRight())
-     cod(n->getRight(), (code << 1) +1,codes);
- if(!n->hasLeft()&&!n->hasRight())
-     codes->push(U(n->getLetter(),code));
+char decodificar(list<bool> mascara, No* atual){
+	if(atual == nullptr)
+		return '\0';
+	if(atual->ehFolha())
+		return atual->getLetra();
+	if(mascara.empty())
+		return '\0';
+	bool path = mascara.front();
+	mascara.pop_front();
+	return decodificar(mascara, path ? atual->getDir() : atual->getEsq());
 }
 
-char Huffman::decod(list<bool> mascara, shared_ptr<Node> atual){
-    if(atual == nullptr)
-        return '\0';
-    if(!atual->hasLeft() && !atual->hasRight())
-        return atual->getLetter();
-    if(mascara.empty())
-        return '\0';
-    bool path = mascara.front();
-    mascara.pop_front();
-    return this->decod(mascara, path ? atual->getRight() : atual->getLeft());
+void descomprime(deque<bool> bits){
+	aviso(6);
+	for (int i = 0; i < h->extra ; i++)
+		bits.pop_back();
+	string resultado;
+	list<bool> mascara;
+	while(!bits.empty()) {
+		mascara.push_back(reinterpret_cast<bool &&>(bits.front()));
+		char letra = decodificar(list<bool> (mascara), h->arvore);
+		if (letra != '\0') {
+			resultado += letra;
+			mascara.clear();
+		}
+		bits.pop_front();
+	}
+	sucesso(resultado);
+	getchar();
+	getchar();
 }
-
-auto Huffman::getTree(){
-    return tree;
-}
-
-string Huffman::descomprime(deque<bool> bits){
-    if(this->tree == nullptr)
-        erro(1);
-    for (int i = 0; i < this->overplus; i++)
-        bits.pop_back();
-    string resultado;
-    list<bool> mascara;
-    while(!bits.empty()) {
-        mascara.push_back(reinterpret_cast<bool &&>(bits.front()));
-        char letra = decod(list <bool>(mascara), tree);
-        if (letra != '\0') {
-            resultado += letra;
-            mascara.clear();
-        }
-        bits.pop_front();
-    }
-    return resultado;
-}
-
-int Huffman::exedente() {
-    return this->overplus;
-}
-unordered_map<char, unsigned long> Huffman::obter_dicionario(){
-    return this->dicionario;
-};
-
-#endif

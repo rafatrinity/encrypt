@@ -93,6 +93,9 @@
 		<Unit filename="/home/rafael/Documentos/ED/encrypt/Node.h">
 			<Option target="encrypt"/>
 		</Unit>
+		<Unit filename="/home/rafael/Documentos/ED/encrypt/README.md">
+			<Option target="encrypt"/>
+		</Unit>
 		<Unit filename="/home/rafael/Documentos/ED/encrypt/aux.h">
 			<Option target="encrypt"/>
 		</Unit>
@@ -100,6 +103,9 @@
 			<Option target="encrypt"/>
 		</Unit>
 		<Unit filename="/home/rafael/Documentos/ED/encrypt/huffman.h">
+			<Option target="encrypt"/>
+		</Unit>
+		<Unit filename="/home/rafael/Documentos/ED/encrypt/huffman.txt">
 			<Option target="encrypt"/>
 		</Unit>
 		<Unit filename="/home/rafael/Documentos/ED/encrypt/main.cc">

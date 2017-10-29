@@ -28,11 +28,11 @@ void menu_compactar(){
 			break;
 			case 1:
 			aviso(0);
-			pega_texto(0);
+			pega_texto(false);
 			break;
 			case 2:
 			aviso(1);
-			pega_texto(1);
+			pega_texto(true);
 			break;
 			case 3:
 			break;

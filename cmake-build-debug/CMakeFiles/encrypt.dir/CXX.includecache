@@ -13,14 +13,16 @@ Node.h
 /home/rafael/Documentos/ED/encrypt/Node.h
 bits/stdc++.h
 -
-Node.cc
-/home/rafael/Documentos/ED/encrypt/Node.cc
+huffman.h
+/home/rafael/Documentos/ED/encrypt/huffman.h
 
 /home/rafael/Documentos/ED/encrypt/aux.h
 bits/stdc++.h
 -
 huffman.h
 /home/rafael/Documentos/ED/encrypt/huffman.h
+huffman.cc
+/home/rafael/Documentos/ED/encrypt/huffman.cc
 msg.h
 /home/rafael/Documentos/ED/encrypt/msg.h
 sis.h
@@ -33,14 +35,16 @@ bits/stdc++.h
 -
 huffman.h
 /home/rafael/Documentos/ED/encrypt/huffman.h
-msg.h
-/home/rafael/Documentos/ED/encrypt/msg.h
 
 /home/rafael/Documentos/ED/encrypt/huffman.h
 bits/stdc++.h
 -
 Node.h
 /home/rafael/Documentos/ED/encrypt/Node.h
+aux.h
+/home/rafael/Documentos/ED/encrypt/aux.h
+huffman.cc
+/home/rafael/Documentos/ED/encrypt/huffman.cc
 
 /home/rafael/Documentos/ED/encrypt/main.cc
 bits/stdc++.h

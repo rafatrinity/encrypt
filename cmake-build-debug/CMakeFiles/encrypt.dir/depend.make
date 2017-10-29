@@ -3,8 +3,15 @@
 
 CMakeFiles/encrypt.dir/Node.cc.o: ../Node.cc
 CMakeFiles/encrypt.dir/Node.cc.o: ../Node.h
+CMakeFiles/encrypt.dir/Node.cc.o: ../aux.h
+CMakeFiles/encrypt.dir/Node.cc.o: ../huffman.cc
+CMakeFiles/encrypt.dir/Node.cc.o: ../huffman.h
+CMakeFiles/encrypt.dir/Node.cc.o: ../menus.cc
+CMakeFiles/encrypt.dir/Node.cc.o: ../menus.h
+CMakeFiles/encrypt.dir/Node.cc.o: ../msg.cc
+CMakeFiles/encrypt.dir/Node.cc.o: ../msg.h
+CMakeFiles/encrypt.dir/Node.cc.o: ../sis.h
 
-CMakeFiles/encrypt.dir/huffman.cc.o: ../Node.cc
 CMakeFiles/encrypt.dir/huffman.cc.o: ../Node.h
 CMakeFiles/encrypt.dir/huffman.cc.o: ../aux.h
 CMakeFiles/encrypt.dir/huffman.cc.o: ../huffman.cc
@@ -15,9 +22,9 @@ CMakeFiles/encrypt.dir/huffman.cc.o: ../msg.cc
 CMakeFiles/encrypt.dir/huffman.cc.o: ../msg.h
 CMakeFiles/encrypt.dir/huffman.cc.o: ../sis.h
 
-CMakeFiles/encrypt.dir/main.cc.o: ../Node.cc
 CMakeFiles/encrypt.dir/main.cc.o: ../Node.h
 CMakeFiles/encrypt.dir/main.cc.o: ../aux.h
+CMakeFiles/encrypt.dir/main.cc.o: ../huffman.cc
 CMakeFiles/encrypt.dir/main.cc.o: ../huffman.h
 CMakeFiles/encrypt.dir/main.cc.o: ../main.cc
 CMakeFiles/encrypt.dir/main.cc.o: ../menus.cc
@@ -26,9 +33,9 @@ CMakeFiles/encrypt.dir/main.cc.o: ../msg.cc
 CMakeFiles/encrypt.dir/main.cc.o: ../msg.h
 CMakeFiles/encrypt.dir/main.cc.o: ../sis.h
 
-CMakeFiles/encrypt.dir/menus.cc.o: ../Node.cc
 CMakeFiles/encrypt.dir/menus.cc.o: ../Node.h
 CMakeFiles/encrypt.dir/menus.cc.o: ../aux.h
+CMakeFiles/encrypt.dir/menus.cc.o: ../huffman.cc
 CMakeFiles/encrypt.dir/menus.cc.o: ../huffman.h
 CMakeFiles/encrypt.dir/menus.cc.o: ../menus.cc
 CMakeFiles/encrypt.dir/menus.cc.o: ../menus.h
@@ -36,9 +43,9 @@ CMakeFiles/encrypt.dir/menus.cc.o: ../msg.cc
 CMakeFiles/encrypt.dir/menus.cc.o: ../msg.h
 CMakeFiles/encrypt.dir/menus.cc.o: ../sis.h
 
-CMakeFiles/encrypt.dir/msg.cc.o: ../Node.cc
 CMakeFiles/encrypt.dir/msg.cc.o: ../Node.h
 CMakeFiles/encrypt.dir/msg.cc.o: ../aux.h
+CMakeFiles/encrypt.dir/msg.cc.o: ../huffman.cc
 CMakeFiles/encrypt.dir/msg.cc.o: ../huffman.h
 CMakeFiles/encrypt.dir/msg.cc.o: ../menus.cc
 CMakeFiles/encrypt.dir/msg.cc.o: ../menus.h

@@ -36,6 +36,9 @@ void aviso(int n){
 		case 5:
 		cout<<"\n\tTOTAL DE BITS EXEDENTES: ";
 		break;
+		case 6:
+		cout<<"\n\tDESCOMPACTANDO.\n";
+		break;
         default:break;
     }
 	cout<<"\033[0m";

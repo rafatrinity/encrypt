@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 #include "menus.h"
-
+//versão do compilador C++14 ou superior
 using namespace std;
 int main(int argc, char const *argv[])
 {
@@ -16,7 +16,7 @@ int main(int argc, char const *argv[])
 			menu_compactar();
 			break;
 			case 2:
-			le_bin();
+			descomprime(le_bin());
 			break;
 			case 3:
 			break;
