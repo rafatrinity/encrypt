@@ -15,7 +15,7 @@ template <typename U>
 void codificar(No* no, unsigned long code, queue<U> *codes);
 
 bool ordenar(No *a, No *b){//ordena a lista pelo parametro qt
-	return a->getQt() > b->getQt();
+	return a->getQt() < b->getQt();
 }
 
 list<No*> gerar_alfabeto(string texto) {
@@ -55,8 +55,7 @@ No* gerar_arvore(list<No*> folhas){
         auto dir=*it;
         folhas.erase(it);
 
-        auto soma=esq->getQt() + dir->getQt();//pega os 2 primeiros elementos da lista
-        // e soma os atributos qt que é a frequencia das letras
+        auto soma=esq->getQt() + dir->getQt();//soma as frequencias
         auto raiz = new No(esq,dir,soma);//cria novo nó
         folhas.push_back(raiz);//insere o novo nó na lista
         if(folhas.size() <= 1)

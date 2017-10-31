@@ -10,9 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cab2949-9392-428a-bd18-a413ad2423e3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/huffman.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/huffman.cc" afterPath="$PROJECT_DIR$/huffman.cc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main" afterPath="$PROJECT_DIR$/main" />
     </list>
@@ -29,10 +27,11 @@
       <file leaf-file-name="huffman.cc" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/huffman.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="73" column="37" lean-forward="false" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
+            <state relative-caret-position="279">
+              <caret line="45" column="35" lean-forward="false" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
               <folding>
                 <element signature="e#170#186#0" expanded="true" />
+                <marker date="1509412007474" expanded="false" signature="1738:1759" ph="&lt;U&gt;" />
               </folding>
             </state>
           </provider>
@@ -169,6 +168,7 @@
       <workItem from="1509317653306" duration="423000" />
       <workItem from="1509324541388" duration="1628000" />
       <workItem from="1509326216809" duration="639000" />
+      <workItem from="1509411723293" duration="281000" />
     </task>
     <task id="LOCAL-00001" summary="versão alpha">
       <created>1509310130237</created>
@@ -181,10 +181,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13694000" />
+    <option name="totallyTimeSpent" value="13975000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-4" width="1368" height="773" extended-state="6" />
+    <frame x="-1" y="-4" width="1368" height="780" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18374817" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -224,6 +224,33 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/huffman.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#170#186#0" expanded="true" />
+            <marker date="1509412007474" expanded="false" signature="1738:1759" ph="&lt;U&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/No.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msg.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="49" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/No.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -238,6 +265,7 @@
           <caret line="73" column="32" lean-forward="false" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
           <folding>
             <element signature="e#170#186#0" expanded="true" />
+            <marker date="1509412007474" expanded="false" signature="1738:1759" ph="&lt;U&gt;" />
           </folding>
         </state>
       </provider>
@@ -283,11 +311,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1854">
           <caret line="103" column="14" lean-forward="true" selection-start-line="103" selection-start-column="14" selection-end-line="103" selection-end-column="14" />
-          <folding>
-            <element signature="e#211#357#0" expanded="false" />
-            <element signature="e#359#670#0" expanded="false" />
-            <element signature="e#672#1363#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -297,6 +320,7 @@
           <caret line="147" column="14" lean-forward="false" selection-start-line="147" selection-start-column="14" selection-end-line="147" selection-end-column="14" />
           <folding>
             <element signature="e#170#186#0" expanded="true" />
+            <marker date="1509412007474" expanded="false" signature="1738:1759" ph="&lt;U&gt;" />
           </folding>
         </state>
       </provider>
@@ -335,11 +359,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1908">
           <caret line="106" column="8" lean-forward="true" selection-start-line="106" selection-start-column="8" selection-end-line="106" selection-end-column="8" />
-          <folding>
-            <element signature="e#211#357#0" expanded="false" />
-            <element signature="e#359#670#0" expanded="false" />
-            <element signature="e#672#1363#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -349,6 +368,7 @@
           <caret line="147" column="14" lean-forward="false" selection-start-line="147" selection-start-column="14" selection-end-line="147" selection-end-column="14" />
           <folding>
             <element signature="e#170#186#0" expanded="true" />
+            <marker date="1509412007474" expanded="false" signature="1738:1759" ph="&lt;U&gt;" />
           </folding>
         </state>
       </provider>
@@ -375,6 +395,7 @@
           <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
           <folding>
             <element signature="e#170#186#0" expanded="true" />
+            <marker date="1509412007474" expanded="false" signature="1738:1759" ph="&lt;U&gt;" />
           </folding>
         </state>
       </provider>
@@ -385,11 +406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1854">
           <caret line="103" column="17" lean-forward="false" selection-start-line="103" selection-start-column="17" selection-end-line="103" selection-end-column="17" />
-          <folding>
-            <element signature="e#211#357#0" expanded="false" />
-            <element signature="e#359#670#0" expanded="false" />
-            <element signature="e#672#1363#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -413,6 +429,7 @@
           <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
           <folding>
             <element signature="e#170#186#0" expanded="true" />
+            <marker date="1509412007474" expanded="false" signature="1738:1759" ph="&lt;U&gt;" />
           </folding>
         </state>
       </provider>
@@ -423,11 +440,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1854">
           <caret line="103" column="17" lean-forward="true" selection-start-line="103" selection-start-column="17" selection-end-line="103" selection-end-column="17" />
-          <folding>
-            <element signature="e#211#357#0" expanded="false" />
-            <element signature="e#359#670#0" expanded="false" />
-            <element signature="e#672#1363#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -461,13 +473,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/huffman.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/huffman.txt" />
     <entry file="file://$PROJECT_DIR$/main">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1188">
@@ -516,11 +522,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
           <caret line="103" column="14" lean-forward="false" selection-start-line="103" selection-start-column="14" selection-end-line="103" selection-end-column="14" />
-          <folding>
-            <element signature="e#211#357#0" expanded="false" />
-            <element signature="e#359#670#0" expanded="false" />
-            <element signature="e#672#1363#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -534,10 +535,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/huffman.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="73" column="37" lean-forward="false" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
+        <state relative-caret-position="279">
+          <caret line="45" column="35" lean-forward="false" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
           <folding>
             <element signature="e#170#186#0" expanded="true" />
+            <marker date="1509412007474" expanded="false" signature="1738:1759" ph="&lt;U&gt;" />
           </folding>
         </state>
       </provider>
