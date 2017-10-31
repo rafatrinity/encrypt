@@ -45,6 +45,7 @@ list<No*> gerar_alfabeto(string texto) {
 
 No* gerar_arvore(list<No*> folhas){
 	cout<<"gerando arvore\n";
+	folhas.sort(ordenar);
 	while(true){
         auto it=folhas.begin();//cria um interador apontando pro início da lista
         auto esq=*it;//atribui o valor do iterador
@@ -58,7 +59,6 @@ No* gerar_arvore(list<No*> folhas){
         // e soma os atributos qt que é a frequencia das letras
         auto raiz = new No(esq,dir,soma);//cria novo nó
         folhas.push_back(raiz);//insere o novo nó na lista
-        folhas.sort(ordenar);
         if(folhas.size() <= 1)
         	return raiz;
     }
