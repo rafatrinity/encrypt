@@ -14,19 +14,19 @@ auto h = new Huffman;
 template <typename U>
 void codificar(No* no, unsigned long code, queue<U> *codes);
 
-bool ordenar(No *a, No *b){//ordena a lista pelo parametro qt
-	return a->getQt() < b->getQt();
-}
-
-list<No*> gerar_alfabeto(string texto) {
+auto gerar_alfabeto(string texto) {
     //separa os caracteres
 	cout<<"gerando alfabeto\n";
 	unordered_multiset<char> conjunto;
 	for(auto c : texto)
 		conjunto.insert(c);
 
+	auto x=[](const unsigned long&a, const unsigned long&b){//função de ordenação do map
+		return a<b;
+	};
+
 	unordered_set<char> skip;
-	list<No*> arv;
+	multimap<unsigned long, No*, decltype(x)>  arv(x);
 
     for(auto v: conjunto){//percorre os caracteres
     	if(skip.count(v)>0)
@@ -34,18 +34,18 @@ list<No*> gerar_alfabeto(string texto) {
     	skip.insert(v);
         unsigned long count = conjunto.count(v);//conta os caracteres
         auto s = new No(count, v);//cria nó
-        arv.push_back(s);//insere nó na lista
+        arv.insert(pair<unsigned long, decltype(s)>(
+        pair<unsigned long, decltype(s)>(count, s))); //insere nó na lista
     }
-    arv.sort(ordenar);
     for(const auto &n: arv)
-    	cout<<n->getLetra()<<n->getQt()<<", ";
+    	cout<<n.second->getLetra()<<n.second->getQt()<<", ";
     cout<<endl;
     return arv;
 }
 
-No* gerar_arvore(list<No*> folhas){
+template<typename T>
+No* gerar_arvore(T folhas){
 	cout<<"gerando arvore\n";
-	folhas.sort(ordenar);
 	while(true){
         auto it=folhas.begin();//cria um interador apontando pro início da lista
         auto esq=*it;//atribui o valor do iterador
@@ -55,24 +55,25 @@ No* gerar_arvore(list<No*> folhas){
         auto dir=*it;
         folhas.erase(it);
 
-        auto soma=esq->getQt() + dir->getQt();//soma as frequencias
-        auto raiz = new No(esq,dir,soma);//cria novo nó
-        folhas.push_back(raiz);//insere o novo nó na lista
+        auto soma=esq.second->getQt() + dir.second->getQt();//soma as frequencias
+        auto raiz = new No(esq.second,dir.second,soma);//cria novo nó
+        auto m=decltype(esq)(soma,raiz);
+        folhas.insert(m);//insere o novo nó na lista
         if(folhas.size() <= 1)
-        	return raiz;
+        	return m.second;
     }
 }
 
 template <typename U>
 void codificar(No* no, unsigned long code, queue<U> *codes){
-	if(no->ehFolha()){
-		cout<<no->getLetra()<<" "<<code<<endl;
-		codes->push(U(no->getLetra(), code));
-	}
 	if(no->temEsq())
 		codificar(no->getEsq(), code << 1,codes);
 	if(no->temDir())
 		codificar(no->getDir(), (code << 1) +1,codes);
+	if(no->ehFolha()){
+		cout<<no->getLetra()<<" "<<code<<endl;
+		codes->push(U(no->getLetra(), code));
+	}
 }
 
 
