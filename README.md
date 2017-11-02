@@ -4,4 +4,4 @@
 
 :closed_lock_with_key:
 
-encriptador e compactador de strings
+encriptador e compressor de strings
