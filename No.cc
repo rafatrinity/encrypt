@@ -32,13 +32,8 @@ unsigned long No::getQt() const {
 No::No(unsigned long qt, char letra) {
     No::letra = letra;
     No::qt = qt;
-    No::folha=true;
     No::esq = nullptr;
     No::dir = nullptr;
-}
-
-bool No::ehFolha() {
-    return No::folha;
 }
 
 No::No(No *e, No *d, unsigned long qt) {

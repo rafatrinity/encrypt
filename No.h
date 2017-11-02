@@ -9,7 +9,6 @@ using namespace std;
 class No {
 	No* dir;
 	No* esq;
-    bool folha;
     char letra; //usado somente nas folhas
     unsigned long qt;
     vector<bool> dicionario;
@@ -29,8 +28,6 @@ public:
 	void setDicionario(const vector<bool> &dicionario);
 
 	unsigned long getQt() const;
-
-	bool ehFolha();
 
     bool temDir();
 

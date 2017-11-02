@@ -65,25 +65,26 @@ No* gerar_arvore(T folhas){
 }
 
 template <typename U>
-void codificar(No* no, unsigned long code, queue<U> *codes){
-	if(no->temEsq())
-		codificar(no->getEsq(), code << 1,codes);
-	if(no->temDir())
-		codificar(no->getDir(), (code << 1) +1,codes);
-	if(no->ehFolha()){
+void codificar(No* no, string code, queue<U> *codes){
+	if(!no->temEsq()&&!no->temDir()){
 		cout<<no->getLetra()<<" "<<code<<endl;
 		codes->push(U(no->getLetra(), code));
 	}
+	if(no->temEsq())
+		codificar(no->getEsq(), code+'0',codes);
+	if(no->temDir())
+		codificar(no->getDir(), code+'1',codes);
 }
 
 
-unordered_map<char, unsigned long> construir_dicionario(No* root){
+unordered_map<char, string> construir_dicionario(No* root){
 	aviso(4);
-    queue<pair<char, unsigned long>> codes;//cria uma fila de pares
-    codificar(root,0,&codes);
-    unordered_map<char, unsigned long> dicionario;
+    queue<pair<char, string>> codes;//cria uma fila de pares
+    string s;
+    codificar(root,s,&codes);
+    unordered_map<char, string> dicionario;
     while(!codes.empty()){
-    	auto atual = static_cast<pair<char, unsigned long> &&>(codes.front());
+    	auto atual = static_cast<pair<char, string> &&>(codes.front());
     	dicionario[atual.first] = atual.second;
     	codes.pop();
     }
@@ -96,18 +97,15 @@ deque<bool> comprime(string texto){
 	deque<bool> resultado;
 	for(auto c: texto){
 		auto bits = dicionario[c];
-		if(!bits)
-			resultado.push_back(false);
-		else{
-			vector<bool> subset;
-			while(bits){
-				auto bit = static_cast<bool>(bits & 1);
-				subset.push_back(bit);
-				bits>>=1;
-			}
-			reverse(subset.begin(),subset.end());
-			resultado.insert(resultado.end(), subset.begin(), subset.end());
+		vector<bool> subset;
+		for(auto n: bits){
+			if(n=='1')
+				subset.push_back(true);
+			else if(n=='0')
+				subset.push_back(false);
 		}
+		//reverse(subset.begin(),subset.end());
+		resultado.insert(resultado.end(), subset.begin(), subset.end());
 	}
 	h->arvore=rootNode;
 	h->extra=(char(8-resultado.size()%8));
@@ -120,7 +118,7 @@ deque<bool> comprime(string texto){
 char decodificar(list<bool> mascara, No* atual){
 	if(atual == nullptr)
 		return '\0';
-	if(atual->ehFolha())
+	if(!atual->temEsq()&&!atual->temDir())
 		return atual->getLetra();
 	if(mascara.empty())
 		return '\0';
