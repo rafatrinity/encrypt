@@ -104,7 +104,6 @@ deque<bool> comprime(string texto){
 			else if(n=='0')
 				subset.push_back(false);
 		}
-		//reverse(subset.begin(),subset.end());
 		resultado.insert(resultado.end(), subset.begin(), subset.end());
 	}
 	h->arvore=rootNode;

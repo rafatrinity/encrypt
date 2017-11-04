@@ -19,22 +19,21 @@ string gerar_string(deque<bool> bits) {
 }
 
 string le_arquivo(){
-	string nome_arquivo;
+	string nome_arquivo, linha, saida;
 	cin>>nome_arquivo;
 	ifstream arquivo;
 	arquivo.open(nome_arquivo);
-	stringstream saida;
 	if(arquivo.is_open()){
 		while(!arquivo.eof()){
-			string buffer;
-			arquivo >> buffer;
-			saida << buffer;
-		}
-	} 
+			getline (arquivo,linha);
+            saida+=linha;
+            saida+="\n";
+        }
+    } 
     else
      e=true;
  arquivo.close();
- return saida.str();
+ return saida;
 }
 
 auto le_bin(){
@@ -44,10 +43,12 @@ auto le_bin(){
     ifstream arquivo;
     arquivo.open(nome_arquivo);
     deque<bool> saida;
-    string lido;
+    string lido,linha;
     if(arquivo.is_open()){
-        while(!arquivo.eof())
-            arquivo >> lido;
+        while(!arquivo.eof()){
+            getline (arquivo,linha);
+            lido+=linha;
+        }
         for(char c: lido){
             if(c != arquivo.eof()) {
                 bitset<8> byte;
