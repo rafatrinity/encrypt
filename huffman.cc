@@ -66,12 +66,12 @@ No* gerar_arvore(T folhas){
 
 template <typename U>
 void codificar(No* no, string code, queue<U> *codes){
+	if(no->temEsq())
+		codificar(no->getEsq(), code+'0',codes);
 	if(!no->temEsq()&&!no->temDir()){
 		cout<<no->getLetra()<<" "<<code<<endl;
 		codes->push(U(no->getLetra(), code));
 	}
-	if(no->temEsq())
-		codificar(no->getEsq(), code+'0',codes);
 	if(no->temDir())
 		codificar(no->getDir(), code+'1',codes);
 }
