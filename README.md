@@ -16,14 +16,14 @@
 
 ### Compactar
 :camera:
-![Tela inicial](img/com.png)
+![Compactar](img/com.png)
 
 - [x] Le entrada do teclado
 - [x] Le arquivo de texto
 - [ ] Ajuda
 
 :camera:
-![Tela inicial](img/cod.png)
+![Compactar Detalhes](img/cod.png)
 
 * imprime texto lido :book:
 * imprime alfabeto gerado :abcd:
@@ -33,7 +33,7 @@
 
 ### Descompactar
 :camera:
-![Tela inicial](img/des.png)
+![Descompactar](img/des.png)
 
 * imprime sequencia de bits lido :mag_right:
 * imprime texto gerado :book:
